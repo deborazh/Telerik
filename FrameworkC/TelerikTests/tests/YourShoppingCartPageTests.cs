@@ -105,7 +105,7 @@ namespace FrameworkC.TelerikTests.tests
 
             // Assert subtotal value
             double actualSubtotal = yourOrderPage.GetSubtotalValue();
-            Assert.AreEqual(product.ExpectedYearlyPrice, actualSubtotal);
+            Assert.AreEqual(product.SubtotalValue, actualSubtotal);
 
             // Assert renewal price
             double actualRenewalPrice = yourOrderPage.GetMnSSubscriptionPrice();
@@ -187,7 +187,7 @@ namespace FrameworkC.TelerikTests.tests
 
             // Assert subtotal value
             double actualSubtotal = yourOrderPage.GetSubtotalValue();
-            Assert.AreEqual(product.ExpectedYearlyPrice, actualSubtotal);
+            Assert.AreEqual(product.SubtotalValue, actualSubtotal);
 
             // Assert renewal price
             double actualRenewalPrice = yourOrderPage.GetMnSSubscriptionPrice();
@@ -255,7 +255,7 @@ namespace FrameworkC.TelerikTests.tests
 
             // Assert subtotal value
             double actualSubtotal = yourOrderPage.GetSubtotalValue();
-            Assert.AreEqual(product.ExpectedYearlyPrice, actualSubtotal);
+            Assert.AreEqual(product.SubtotalValue, actualSubtotal);
 
             // Assert renewal price
             double actualRenewalPrice = yourOrderPage.GetMnSSubscriptionPrice();
@@ -374,7 +374,7 @@ namespace FrameworkC.TelerikTests.tests
 
             // Assert subtotal value
             double actualSubtotal = yourOrderPage.GetSubtotalValue();
-            Assert.AreEqual(product.ExpectedYearlyPrice, actualSubtotal);
+            Assert.AreEqual(product.SubtotalValue, actualSubtotal);
 
             // Assert renewal price
             double actualRenewalPrice = yourOrderPage.GetMnSSubscriptionPrice();
