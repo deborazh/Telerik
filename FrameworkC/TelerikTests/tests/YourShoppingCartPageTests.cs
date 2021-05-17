@@ -364,7 +364,7 @@ namespace FrameworkC.TelerikTests.tests
             // Calculate discount
             yourOrderPage.SetLicenseQuantity(product.LicenseQuantity);
 
-            product.YearlyDiscount =(yourOrderPage.GetYearQuantityDiscounts(qty);
+            product.YearlyDiscount =(yourOrderPage.GetYearQuantityDiscounts(qty));
             yourOrderPage.SetMaintenanceAndSupportQuantity(product.YearlyQuantity);
 
             // Calculations
