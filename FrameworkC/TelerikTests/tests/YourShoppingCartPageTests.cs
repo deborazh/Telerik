@@ -18,7 +18,7 @@ namespace FrameworkC.TelerikTests.tests
         public YourOrderPage yourOrderPage;
         public ProductsPage productsPage;
 
-        //[Test]
+        [Test]
         public void VerifySavingsLabelsAreNotDisplayedWhenQuantitiesAreWithDefaultValues() {
             yourOrderPage = new YourOrderPage(CmdDriver.Driver);
 
@@ -41,7 +41,7 @@ namespace FrameworkC.TelerikTests.tests
             Assert.IsFalse(yourOrderPage.IsSavingsLabelForYearlyPriceDisplayed());
         }
 
-        //[Test]
+        [Test]
         public void CheckTotalAndSubtotalValuesWhenThereAreDiscountsForBothLicensesAndYearlyDropDowns()
         {
             productsPage = new ProductsPage(CmdDriver.Driver);
@@ -131,7 +131,7 @@ namespace FrameworkC.TelerikTests.tests
             Assert.AreEqual(product.ExpectedYearlyPrice, product.ExpectedTotalValue);
         }
 
-        //[Test]
+        [Test]
         public void CheckTotalAndSubtotalValuesWhenThereIsADiscountOnlyForLicenses()
         {
             productsPage = new ProductsPage(CmdDriver.Driver);
@@ -139,7 +139,6 @@ namespace FrameworkC.TelerikTests.tests
 
             extentReportUtils.createATestCase("Check total and subtotal values when there is a discount only for licenses");
             extentReportUtils.addTestLog(Status.Info, "CheckTotalAndSubtotalValuesWhenThereIsADiscountOnlyForLicenses");
-            ////CmdDriver.NavigateTo("https://store.progress.com/configure-purchase?skuId=6127");
 
             productsPage.ClickAcceptAllCookies();
 
@@ -210,7 +209,7 @@ namespace FrameworkC.TelerikTests.tests
             Assert.AreEqual(product.ExpectedYearlyPrice, product.ExpectedTotalValue);
         }
 
-        //[Test]
+        [Test]
         public void CheckTotalAndSubtotalValuesWhenThereIsADiscountOnlyForYearly()
         {
             yourOrderPage = new YourOrderPage(CmdDriver.Driver);
@@ -278,14 +277,13 @@ namespace FrameworkC.TelerikTests.tests
             Assert.AreEqual(product.ExpectedYearlyPrice, product.ExpectedTotalValue);
         }
 
-        //[Test]
+        [Test]
         public void VerifyUserIsNavigatedBackToProductPageWhenRemovingExistingProductFromCard() {
             yourOrderPage = new YourOrderPage(CmdDriver.Driver);
             productsPage = new ProductsPage(CmdDriver.Driver);
 
             extentReportUtils.createATestCase("Verify the user is navigated back to Product page when removing the existing product from the card");
             extentReportUtils.addTestLog(Status.Info, "VerifyUserIsNavigatedBackToProductPageWhenRemovingExistingProductFromCard");
-            //CmdDriver.NavigateTo("https://store.progress.com/configure-purchase?skuId=6127");
 
             productsPage.ClickAcceptAllCookies();
 
@@ -307,7 +305,7 @@ namespace FrameworkC.TelerikTests.tests
             Assert.AreEqual("Pricing", productsPage.GetHeaderText());
         }
 
-        //[Test]
+        [Test]
         public void CheckErrorMessageForInvalidCoupon() {
             yourOrderPage = new YourOrderPage(CmdDriver.Driver);
 
@@ -324,7 +322,7 @@ namespace FrameworkC.TelerikTests.tests
             Assert.AreEqual("Coupon code is not valid.", yourOrderPage.GetCouponErrorMessageText());
         }
 
-        //[Test]
+        [Test]
         public void CheckLicenseQuantityWhenUserAddTheSameProductTwiceToCard() {
             yourOrderPage = new YourOrderPage(CmdDriver.Driver);
             productsPage = new ProductsPage(CmdDriver.Driver);
@@ -422,7 +420,6 @@ namespace FrameworkC.TelerikTests.tests
 
             extentReportUtils.createATestCase("Verify Product details are displayed when a user clicks on product name");
             extentReportUtils.addTestLog(Status.Info, "VerifyProductDetailsAreDisplayedWhenUserClicksOnProductName");
-            //CmdDriver.NavigateTo("https://store.progress.com/configure-purchase?skuId=6127");
 
             productsPage.ClickAcceptAllCookies();
 
@@ -446,32 +443,6 @@ namespace FrameworkC.TelerikTests.tests
 
             // Assert productDetails are not displayed
             Assert.IsFalse(yourOrderPage.IsProductDetailsDisplayedByProductName(productName));
-        }
-
-
-        private void retreiveAllProductInformation(Product product)
-        {
-            // Set Unit Price and M & S subscription price
-            product.InitialUnitPrice = yourOrderPage.GetUnitPrice();
-            product.MNsSubscriptionPrice = yourOrderPage.GetMnSSubscriptionPrice();
-
-            // Set license quantity
-            int randomLicenseQuantity = yourOrderPage.GetRandomLicenseQuantityWithMinValue(product.MinLicenseQty);
-            product.LicenseQuantity = randomLicenseQuantity;
-
-            // Set license discount
-            product.LicenseDiscount = yourOrderPage.GetQuantityDiscounts(product.LicenseQuantity);
-
-            yourOrderPage.SetLicenseQuantity(product.LicenseQuantity);
-
-            // Set Yearly quantity
-            //int randomYearQuantity = yourOrderPage.GetRandomYearQuantityWithMinValue(2);
-            int randomYearQuantity = yourOrderPage.GetRandomYearQuantityWithMinValue(product.MinYearlyQty);
-            //product.SetYearlyQuantity(yourOrderPage.GetRandomYearQuantityWithMinValue(2));
-            product.YearlyQuantity = randomYearQuantity;
-            //int yearDiscount = yourOrderPage.GetYearQuantityDiscounts(randomYearQuantity);
-            product.YearlyDiscount = yourOrderPage.GetYearQuantityDiscounts(randomYearQuantity);
-            yourOrderPage.SetMaintenanceAndSupportQuantity(product.YearlyQuantity);
         }
     }
 }
