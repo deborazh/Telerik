@@ -128,7 +128,7 @@ namespace FrameworkC.TelerikTests.tests
             Assert.AreEqual(product.ExpectedTotalValue, actualTotalValue);
 
             // Assert Subtotal and Total value
-            Assert.AreEqual(product.ExpectedYearlyPrice, product.ExpectedTotalValue);
+            Assert.AreEqual(product.SubtotalValue, product.ExpectedTotalValue);
         }
 
         [Test]
@@ -206,7 +206,7 @@ namespace FrameworkC.TelerikTests.tests
             Assert.AreEqual(product.ExpectedTotalValue, actualTotalValue);
 
             // Assert Subtotal and Total value
-            Assert.AreEqual(product.ExpectedYearlyPrice, product.ExpectedTotalValue);
+            Assert.AreEqual(product.SubtotalValue, product.ExpectedTotalValue);
         }
 
         [Test]
@@ -274,7 +274,7 @@ namespace FrameworkC.TelerikTests.tests
             Assert.AreEqual(product.ExpectedTotalValue, actualTotalValue);
 
             // Assert Subtotal and Total value
-            Assert.AreEqual(product.ExpectedYearlyPrice, product.ExpectedTotalValue);
+            Assert.AreEqual(product.SubtotalValue, product.ExpectedTotalValue);
         }
 
         [Test]
@@ -385,7 +385,7 @@ namespace FrameworkC.TelerikTests.tests
             Assert.AreEqual(product.ExpectedTotalValue, actualTotalValue);
 
             // Assert Subtotal and Total value
-            Assert.AreEqual(product.ExpectedYearlyPrice, product.ExpectedTotalValue);
+            Assert.AreEqual(product.SubtotalValue, product.ExpectedTotalValue);
 
             // Click 'Continue Shopping' button
             yourOrderPage.ClickContinueShoppingButton();
@@ -409,7 +409,7 @@ namespace FrameworkC.TelerikTests.tests
             product.CalculateValues();
 
             // Assert Subtotal and Total value
-            Assert.AreEqual(product.ExpectedYearlyPrice, product.ExpectedTotalValue);
+            Assert.AreEqual(product.SubtotalValue, product.ExpectedTotalValue);
         }
 
         [Test]
